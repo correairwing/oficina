@@ -1,11 +1,15 @@
 package com.icorrea.oficina.entity;
 
 import java.util.Date;
+import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 import jakarta.persistence.Temporal;
@@ -28,6 +32,10 @@ public class Cliente {
     private String endereco;
 
     private String cpf;
+
+    @OneToMany(mappedBy = "cliente")
+    @JsonManagedReference
+    private List<Venda> vendas;
 
     @Temporal(TemporalType.TIMESTAMP)
     private Date dataCriacao;
