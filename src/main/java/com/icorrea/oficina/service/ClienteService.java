@@ -19,6 +19,10 @@ public class ClienteService {
         return clienteRepository.findAll();
     }
 
+    public List<Cliente> getClientesByName(String nome) {
+        return clienteRepository.findByNome(nome);
+    }
+
     public Cliente inserir(Cliente obj) {
         obj.setDataCriacao(new Date());
         Cliente clienteNovo = clienteRepository.saveAndFlush(obj);
