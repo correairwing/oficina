@@ -1,10 +1,15 @@
 package com.icorrea.oficina.entity;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -33,9 +38,9 @@ public class Cliente {
 
     private String cpf;
 
-    @OneToMany(mappedBy = "cliente")
-    @JsonManagedReference
-    private List<Venda> vendas;
+    @OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonIgnore
+    private List<Servico> servicos = new ArrayList<>();
 
     @Temporal(TemporalType.TIMESTAMP)
     private Date dataCriacao;

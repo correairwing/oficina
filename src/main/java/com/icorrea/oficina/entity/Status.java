@@ -1,6 +1,6 @@
 package com.icorrea.oficina.entity;
 
-public enum StatusVenda {
+public enum Status {
     ORCAMENTO,
     ANDAMENTO,
     FINALIZADO;
