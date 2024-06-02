@@ -3,7 +3,6 @@ package com.icorrea.oficina.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.icorrea.oficina.entity.Cliente;
 import com.icorrea.oficina.entity.Servico;
 import com.icorrea.oficina.repository.ServicoRepository;
 
