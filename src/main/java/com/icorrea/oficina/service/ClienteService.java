@@ -24,13 +24,11 @@ public class ClienteService {
     }
 
     public Cliente inserir(Cliente obj) {
-        obj.setDataCriacao(new Date());
         Cliente clienteNovo = clienteRepository.saveAndFlush(obj);
         return clienteNovo;
     }
 
-    public Cliente alterar(Cliente obj) {
-        obj.setDataAtualizacao(new Date());
+    public Cliente alterar(Cliente obj) {;
         return clienteRepository.saveAndFlush(obj);
     }
 

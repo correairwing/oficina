@@ -33,19 +33,8 @@ public class Cliente {
     private Long id;
 
     private String nome;
-
-    private String endereco;
-
     private String cpf;
+    private String telefone;
 
-    @OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL, orphanRemoval = true)
-    @JsonIgnore
-    private List<Servico> servicos = new ArrayList<>();
-
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date dataCriacao;
-
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date dataAtualizacao;
 
 }
