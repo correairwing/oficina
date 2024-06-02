@@ -29,6 +29,11 @@ public class ClienteController {
         return clienteService.buscarTodos();
     }
 
+    @GetMapping("/{nome}")
+    public List<Cliente> getClientesByName(@PathVariable String nome) {
+        return clienteService.getClientesByName(nome);
+    }
+
     @PostMapping("/")
     public Cliente inserir(@RequestBody Cliente obj) {
         return clienteService.inserir(obj);             
