@@ -23,6 +23,10 @@ public class ServicoService {
         return servicoRepository.findById(id);
     }
 
+    public List<Servico> findByClienteId(Long clienteId) {
+        return servicoRepository.findByClienteId(clienteId);
+    }
+
     public Servico alterar(Servico obj) {;
         return servicoRepository.saveAndFlush(obj);
     }
