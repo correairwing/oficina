@@ -31,6 +31,11 @@ public class ServicoController {
         }
     }
 
+    @GetMapping("/cliente/{clienteId}")
+    public List<Servico> findByClienteId(@PathVariable Long clienteId) {
+        return servicoService.findByClienteId(clienteId);
+    }
+
     @PostMapping("/")
     public Servico createServico(@RequestBody Servico servico) {
         return servicoService.save(servico);
