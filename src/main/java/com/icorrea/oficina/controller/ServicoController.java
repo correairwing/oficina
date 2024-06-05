@@ -32,7 +32,7 @@ public class ServicoController {
     }
 
     @GetMapping("/cliente/{clienteId}")
-    public List<Servico> findByClienteId(@PathVariable Long clienteId) {
+    public List<Servico> getServicosByClienteId(@PathVariable Long clienteId) {
         return servicoService.findByClienteId(clienteId);
     }
 
