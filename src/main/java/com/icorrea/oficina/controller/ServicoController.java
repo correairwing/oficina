@@ -5,6 +5,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import com.icorrea.oficina.entity.Servico;
+import com.icorrea.oficina.entity.Status;
 import com.icorrea.oficina.service.ServicoService;
 import java.util.List;
 import java.util.Optional;
@@ -34,6 +35,11 @@ public class ServicoController {
     @GetMapping("/cliente/{clienteId}")
     public List<Servico> getServicosByClienteId(@PathVariable Long clienteId) {
         return servicoService.findByClienteId(clienteId);
+    }
+
+    @GetMapping("/naoFinalizados")
+    public List<Servico> getNaoFinalizados() {
+        return servicoService.findNaoFinalizados(Status.FINALIZADO);
     }
 
     @PostMapping("/")

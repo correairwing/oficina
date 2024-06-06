@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.icorrea.oficina.entity.Servico;
+import com.icorrea.oficina.entity.Status;
 import com.icorrea.oficina.repository.ServicoRepository;
 
 import java.util.List;
@@ -25,6 +26,10 @@ public class ServicoService {
 
     public List<Servico> findByClienteId(Long clienteId) {
         return servicoRepository.findByClienteId(clienteId);
+    }
+
+    public List<Servico> findNaoFinalizados(Status status) {
+        return servicoRepository.findByStatusNotOrderByDataCriacaoDesc(status);
     }
 
     public Servico alterar(Servico obj) {;
