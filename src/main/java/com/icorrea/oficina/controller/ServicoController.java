@@ -1,14 +1,22 @@
 package com.icorrea.oficina.controller;
 
+import java.util.List;
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.icorrea.oficina.entity.Servico;
 import com.icorrea.oficina.entity.Status;
 import com.icorrea.oficina.service.ServicoService;
-import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/servicos")
@@ -47,9 +55,11 @@ public class ServicoController {
         return servicoService.save(servico);
     }
 
-    @PutMapping("/")
-    public Servico updateServico(@RequestBody Servico servico) {
-        return servicoService.alterar(servico);
+    
+    @PutMapping("/{id}")
+    public Servico updateServico(@PathVariable Long id, @RequestBody Servico servico) {
+        servico.setId(id);
+        return servicoService.save(servico);
     }
 
     @DeleteMapping("/{id}")
