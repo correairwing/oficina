@@ -4,10 +4,10 @@ package com.icorrea.oficina.service;
 import java.util.List;
 import java.util.Optional;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.icorrea.oficina.entity.Cliente;
 import com.icorrea.oficina.repository.ClienteRepository;
@@ -47,7 +47,7 @@ public class ClienteService {
         return clienteNovo;
     }
 
-    public Cliente alterar(Cliente obj) {;
+    public Cliente alterar(Cliente obj) {
         return clienteRepository.saveAndFlush(obj);
     }
 
